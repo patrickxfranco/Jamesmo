@@ -26,6 +26,7 @@ namespace Jamesmo.Main
                         DeletarVeiculo();
                         break;
                     case 3:
+                        VisualizarVeiculos();
                         break;
                     case 4:
                         Environment.Exit(0);
@@ -68,17 +69,21 @@ namespace Jamesmo.Main
                 {
                     ImprimirCabecalho("CADASTRAR VEÍCULO");
                     Console.WriteLine("Selecione uma das opções abaixo referente a MARCA do veículo");
-                    Console.Write("[1]Chevrolet;\n" +
-                                  "[2]Fiat;\n" +
-                                  "[3]Ford;\n" +
-                                  "[4]Honda;\n" +
-                                  "[5]Mercedes;\n" +
-                                  "[6]Nissan;\n" +
-                                  "[7]Volkswagen;\n" +
+                    Console.Write("[1]Chevrolet;\n"     +
+                                  "[2]Fiat;\n"          +
+                                  "[3]Ford;\n"          +
+                                  "[4]Honda;\n"         +
+                                  "[5]Mercedes;\n"      +
+                                  "[6]Nissan;\n"        +
+                                  "[7]Volkswagen;\n"    +
+                                  "[0]Voltar"           +
                                   "Opção: ");
                     opcao = Console.ReadKey().KeyChar;
                     switch (char.GetNumericValue(opcao))
                     {
+                        case 0:
+                            Main();
+                            break;
                         case 1:
                             vMarca = ("CHEVROLET");
                             break;
@@ -105,7 +110,7 @@ namespace Jamesmo.Main
                             Console.ReadLine();
                             break;
                     }
-                } while (char.GetNumericValue(opcao) < 1 || char.GetNumericValue(opcao) > 7);
+                } while (char.GetNumericValue(opcao) < 0 || char.GetNumericValue(opcao) > 7);
                 do
                 {
                     Console.Clear();
@@ -134,7 +139,7 @@ namespace Jamesmo.Main
                 Console.Clear();
                 ImprimirCabecalho("CADASTRAR VEÍCULO");
                 Console.WriteLine("Verifique se esses dados estão corretos\n");
-                Console.WriteLine($"Marca do veículo: {vMarca}\n" +
+                Console.WriteLine($"Marca do veículo: {vMarca}\n"   +
                                   $"Modelo do veículo: {vModelo}\n" +
                                   $"Ano do veículo: {vAno}\n");
                 Console.Write("Essas informações estão todas corretas? [1]Sim [2]Não\nOpção: ");
@@ -153,7 +158,7 @@ namespace Jamesmo.Main
             do
             {
                 Console.Clear();
-                ImprimirCabecalho("DELETAR VEÍCULO");
+                ImprimirCabecalho(" DELETAR VEÍCULO ");
                 Console.Write("Digite aqui o MODELO do veículo na qual deseja deletar: ");
                 vModelo = Console.ReadLine();
                 vModelo = vModelo.ToUpper();
@@ -166,6 +171,16 @@ namespace Jamesmo.Main
             Veiculo veiculo = new Veiculo(vModelo);
             veiculo.Excluir();
             Console.Write("\n\nVeículo deletado com sucesso. Pressione ENTER para continuar");
+            Console.ReadLine();
+            Main();
+        }
+
+        public static void VisualizarVeiculos()
+        {
+            Veiculo veiculo = new Veiculo();
+            ImprimirCabecalho("  VISUALIZAÇÃO   ");
+            veiculo.Visualizar();
+            Console.Write("\n\nTodos os veículos cadastrados foram exibidos acima.\nPressione ENTER para continuar.");
             Console.ReadLine();
             Main();
         }

@@ -19,6 +19,11 @@ namespace Jamesmo.VeiculoNS
             aModelo = pModelo;
         }
 
+        public Veiculo()
+        { 
+            
+        }
+
         public void Cadastrar()
         {
             banco = new BancoDeDados();
@@ -33,7 +38,8 @@ namespace Jamesmo.VeiculoNS
 
         public void Visualizar()
         {
-
+            banco = new BancoDeDados();
+            banco.Select();
         }
     }
 }

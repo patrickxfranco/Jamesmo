@@ -76,7 +76,20 @@ namespace Jamesmo.MySQL
 
         public void Select()
         {
+            MySqlCommand comando = new MySqlCommand("SELECT * FROM tbveiculos", conexao);
+            conexao.Open();
+            MySqlDataReader dataReader = comando.ExecuteReader();
 
+            while (dataReader.Read())
+            {
+                int id = (int)dataReader["idVeiculo"];
+                string marca = (string)dataReader["marcaVeiculo"];
+                string modelo = (string)dataReader["modeloVeiculo"];
+                string ano = (string)dataReader["anoVeiculo"];
+                Console.WriteLine(id+ "         " +marca+ "         " +modelo+ "            " +ano);
+            }
+            dataReader.Close();
+            conexao.Close();
         }
     }
 }
