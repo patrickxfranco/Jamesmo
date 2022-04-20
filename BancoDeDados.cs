@@ -57,7 +57,7 @@ namespace Jamesmo.MySQL
         {
             //Comando delete e atribuição dos parametros do comando
             MySqlCommand comando = new MySqlCommand("DELETE FROM tbveiculos WHERE modeloVeiculo=@MODELO", conexao);
-            comando.Parameters.AddWithValue("@MODELO",aModelo);
+            comando.Parameters.AddWithValue("@MODELO", aModelo);
             //Tentiva de conexão e execução do comando, tratamento de erro se necessário
             try
             {
@@ -80,14 +80,19 @@ namespace Jamesmo.MySQL
             conexao.Open();
             MySqlDataReader dataReader = comando.ExecuteReader();
 
+            Console.WriteLine(String.Format("{0,2} | {1,-15} | {2,10} | {3,2}", "ID", "Marca", "Modelo", "Ano"));
+            Console.WriteLine("----------------------------------------");
+
             while (dataReader.Read())
             {
                 int id = (int)dataReader["idVeiculo"];
                 string marca = (string)dataReader["marcaVeiculo"];
                 string modelo = (string)dataReader["modeloVeiculo"];
                 string ano = (string)dataReader["anoVeiculo"];
-                Console.WriteLine(id+ "         " +marca+ "         " +modelo+ "            " +ano);
+                //Console.WriteLine(id+ "         " +marca+ "         " +modelo+ "            " +ano);
+                Console.WriteLine(String.Format("{0,2} | {1,-15} | {2,10} | {3,2}", id, marca, modelo, ano));
             }
+            Console.WriteLine("----------------------------------------");
             dataReader.Close();
             conexao.Close();
         }

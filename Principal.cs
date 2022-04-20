@@ -7,6 +7,7 @@ namespace Jamesmo.Main
     {
         public static void Main()
         {
+            Console.Title = ("JAMESMO VEÍCULOS");
             char opcao;
             do
             {
@@ -42,21 +43,7 @@ namespace Jamesmo.Main
         private static void ImprimirCabecalho(string pTitulo)
         {
             Console.Clear();
-            string[] vTitulo = { "JAMESMO  VEÍCULOS", pTitulo };
-            for (int i = 0; i < 2; i++)
-            {
-                for (int c = 0; c < 10; c++)
-                {
-                    Console.Write("#");
-                }
-                Console.Write("     " + vTitulo[i] + "     ");
-                for (int c = 0; c < 10; c++)
-                {
-                    Console.Write("#");
-                }
-                Console.Write("\n");
-            }
-            Console.Write("\n\n");
+            Console.Write($"########## JAMESMO VEÍCULOS\n##########{pTitulo}\n\n\n");
         }
 
         private static void CadastrarVeiculo()
@@ -69,14 +56,14 @@ namespace Jamesmo.Main
                 {
                     ImprimirCabecalho("CADASTRAR VEÍCULO");
                     Console.WriteLine("Selecione uma das opções abaixo referente a MARCA do veículo");
-                    Console.Write("[1]Chevrolet;\n"     +
-                                  "[2]Fiat;\n"          +
-                                  "[3]Ford;\n"          +
-                                  "[4]Honda;\n"         +
-                                  "[5]Mercedes;\n"      +
-                                  "[6]Nissan;\n"        +
-                                  "[7]Volkswagen;\n"    +
-                                  "[0]Voltar"           +
+                    Console.Write("[1]Chevrolet;\n" +
+                                  "[2]Fiat;\n" +
+                                  "[3]Ford;\n" +
+                                  "[4]Honda;\n" +
+                                  "[5]Mercedes;\n" +
+                                  "[6]Nissan;\n" +
+                                  "[7]Volkswagen;\n" +
+                                  "[0]Voltar" +
                                   "Opção: ");
                     opcao = Console.ReadKey().KeyChar;
                     switch (char.GetNumericValue(opcao))
@@ -139,7 +126,7 @@ namespace Jamesmo.Main
                 Console.Clear();
                 ImprimirCabecalho("CADASTRAR VEÍCULO");
                 Console.WriteLine("Verifique se esses dados estão corretos\n");
-                Console.WriteLine($"Marca do veículo: {vMarca}\n"   +
+                Console.WriteLine($"Marca do veículo: {vMarca}\n" +
                                   $"Modelo do veículo: {vModelo}\n" +
                                   $"Ano do veículo: {vAno}\n");
                 Console.Write("Essas informações estão todas corretas? [1]Sim [2]Não\nOpção: ");
