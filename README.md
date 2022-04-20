@@ -3,7 +3,7 @@
 <br>
 <h2>Informações básicas</h2>
 
-> Status: Em desenvolvimento ⚠️
+> Status: Projeto finalizado ✅
 <p>Este é um sistema desenvolvido em C# cujo objetivo é efetuar o cadastro de veículos que possuem <b>ID</b>, <b>MARCA</b>, <b>MODELO</b> e <b>ANO</b>, o registro é feito em um banco de dados <b>MySQL</b> e durante o desenvolvimento foi utilizado o <a href="https://laragon.org/">Laragon</a> para o servidor Apache e para o banco <b>MySQL</b>.</p>
 <br>
 <h2>Tecnologias utilizadas</h2>
